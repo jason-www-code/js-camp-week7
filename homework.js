@@ -316,7 +316,7 @@ const OrderService = {
   formatOrders(orders) {
     const formattedOrders = orders.map((order) => ({
       ...order,
-      formattedDate: dayjs(order.createdAt * 1000).format("YYYY/MM/DD"),
+      formattedDate: dayjs.unix(order.createdAt).format("YYYY/MM/DD"),
     }));
 
     return formattedOrders;
