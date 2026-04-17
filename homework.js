@@ -152,7 +152,7 @@ function validateCartQuantity(quantity) {
   const isPositiveInteger = Number.isInteger(quantity);
 
   const minQuantity = 1;
-  const manQuantity = 99;
+  const maxQuantity = 99;
 
   if (!isPositiveInteger) {
     error.push("必須是正整數");
@@ -160,7 +160,7 @@ function validateCartQuantity(quantity) {
   if (quantity < minQuantity) {
     error.push("不可小於 1");
   }
-  if (quantity > manQuantity) {
+  if (quantity > maxQuantity) {
     error.push("不可大於 99");
   }
 
