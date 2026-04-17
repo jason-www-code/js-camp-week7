@@ -271,12 +271,10 @@ async function getOrdersWithAxios() {
 /*
 比較題：請說明 fetch 和 axios 的主要差異
 
-1. ____________________________________
-
-2. ____________________________________
-
-3. ____________________________________
-*/
+1. fetch 是原生 JavaScript 語法；而 axios 是基於 Promise 和原生 XMLHttpRequest 的第三方套件，需要另外匯入。
+2. fetch 預設不會把 response body 解析成 JSON ，需要用 .json() 轉碼；而 axios 預設就會自動轉成 JSON 字串。
+3. 錯誤處理 : fetch 只有在網路連線中斷才會跑 catch 。發生 4XX、5XX 錯誤不會自動跑 catch ，需要判斷 response.ok 是 false 的時候 throw error ；而 axios 只要發生任何錯誤就會自動跑 catch()
+4. fetch 的 request header 預設沒有 Content-Type ，一定要手動設定 ； 而 axios 的 Content-Type 預設就是 application/json
 
 // ========================================
 // 任務五：整合應用 (挑戰)
