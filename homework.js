@@ -60,9 +60,7 @@ function isOrderOverdue(timestamp) {
   const timeGap = today.diff(orderDate, "day");
   const maxDays = 7;
 
-  if (timeGap >= maxDays) return true;
-
-  return false;
+  return timeGap > maxDays;
 }
 
 /**
@@ -222,6 +220,7 @@ async function getProductsWithAxios() {
   );
 
   const { products } = response.data;
+
   return products;
 }
 
@@ -347,6 +346,7 @@ const OrderService = {
   async getUnpaidOrdersFormatted() {
     const orders = await this.fetchOrders();
     const unpaid = this.filterUnpaidOrders(orders);
+
     return this.formatOrders(unpaid);
   },
 };
